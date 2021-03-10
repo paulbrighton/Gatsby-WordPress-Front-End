@@ -14,11 +14,19 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 !important;
     padding: 0 !important;
   }
+  .wp-block-image {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const LayoutWrapper = styled.div`
   max-width: 960px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const Layout = ({ children }) => (

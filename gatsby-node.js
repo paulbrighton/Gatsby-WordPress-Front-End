@@ -85,6 +85,10 @@ exports.createPages = ({ graphql, actions }) => {
                       alt_text
                       source_url
                     }
+                    acf{
+                      portfolio_url
+                      portfolio_link_text
+                    }
                   }
                 }
               }
