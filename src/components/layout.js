@@ -2,6 +2,8 @@ import React from 'react'
 import MainMenu from './MainMenu'
 import styled, {createGlobalStyle} from 'styled-components'
 import 'normalize.css'
+import {graphql, StaticQuery} from 'gatsby'
+import Helmet from 'react-helmet'
 
 const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
@@ -21,6 +23,19 @@ const LayoutWrapper = styled.div`
 
 const Layout = ({ children }) => (
   <div>
+    <StaticQuery query={graphql`
+      {
+        allWordpressWpFavicon{
+          edges{
+            node{
+              url{
+                source_url
+              }
+            }
+          }
+        }
+      }
+    `} render={props => <Helmet><link rel='icon' href={props.allWordpressWpFavicon.edges[0].node.url.source_url} /></Helmet>} />
     <GlobalStyles />
     <MainMenu />
     <LayoutWrapper>
