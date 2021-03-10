@@ -13,15 +13,17 @@ const FeaturedImageContainer = styled.div`
   justify-content: center;
 `
 
-export default ({pageContext}) => (
+const Portfolio = ({pageContext}) => (
   <Layout>
     <h1>
       {pageContext.title}
     </h1>
-    <strong>Website url: <a href={pageContext.acf.portfolio_url} target='_blank' rel='noreferrer'>{pageContext.acf.portfolio_link_text}</a></strong>
+    <strong>Website url: <a href={pageContext.acf.portfolio_url} target='_blank' rel='noopener noreferrer'>{pageContext.acf.portfolio_link_text}</a></strong>
     <FeaturedImageContainer>
       <FeaturedImage src={pageContext.featured_media.source_url} alt={pageContext.featured_media.alt_text} />
     </FeaturedImageContainer>
     <div dangerouslySetInnerHTML={{__html: pageContext.content}} />
   </Layout>
 )
+
+export default Portfolio

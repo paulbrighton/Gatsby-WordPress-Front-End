@@ -6,7 +6,6 @@ import {graphql, StaticQuery} from 'gatsby'
 import Helmet from 'react-helmet'
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 
   body, html {
@@ -43,7 +42,11 @@ const Layout = ({ children }) => (
           }
         }
       }
-    `} render={props => <Helmet><link rel='icon' href={props.allWordpressWpFavicon.edges[0].node.url.source_url} /></Helmet>} />
+    `} render={props => <Helmet>
+      <link rel='icon' href={props.allWordpressWpFavicon.edges[0].node.url.source_url} />
+      <link rel='preconnect' href='https://fonts.gstatic.com' />
+      <link href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap' rel="stylesheet" />
+    </Helmet>} />
     <GlobalStyles />
     <MainMenu />
     <LayoutWrapper>
