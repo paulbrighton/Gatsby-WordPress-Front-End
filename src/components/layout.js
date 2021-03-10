@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
 
 const LayoutWrapper = styled.div`
   max-width: 960px;
+  padding: 0 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
