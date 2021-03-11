@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby WordPress Starter`,
@@ -31,8 +35,8 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         minimizeDeprecationNotice: true,
-        baseUrl: 'http://localhost/gatsby-wordpress',
-        protocol: 'http',
+        baseUrl: process.env.API_URL,
+        protocol: process.env.API_PROTOCOL,
         hostingWPCOM: false,
         useACF: true,
         acfOptionsPageids: [],
@@ -53,6 +57,7 @@ module.exports = {
           '**/*/*/favicon'
         ]
       }
-    }
+    },
+    'gatsby-plugin-netlify'
   ]
 }
